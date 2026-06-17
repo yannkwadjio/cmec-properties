@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_URL:db}:${POSTGRES_PORT:5432}/${POSTGRES_DB:cmecdb}
+    username: ${POSTGRES_URL:cmec}
+    password: ${POSTGRES_PASSWORD:cmec}
+  jpa:
+    properties:
+      hibernate:
+       show_sql: ${HIBERNATE_SHOW_SQL:true}
+
+
+server:
+  port: ${SERVER_PORT:8012}
