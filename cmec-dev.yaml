@@ -1,11 +1,12 @@
 spring:
   datasource:
-    url: jdbc:postgresql://db:5432/cmecdb
+    url: jdbc:postgresql://localhost:5432/cmecdb
     username: cmec
     password: cmec
   jpa:
     properties:
       hibernate:
+       dialect: org.hibernate.PostgreSQL.Dialect
        show_sql: true
 
 
