@@ -6,6 +6,7 @@ spring:
   jpa:
     properties:
       hibernate:
+       dialect: org.hibernate.PostgreSQLDialect
        show_sql: ${HIBERNATE_SHOW_SQL:true}
 
 
