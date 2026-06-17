@@ -1,11 +1,15 @@
 spring:
-  application: cmec
+  application:
+    name: cash
+
   datasource:
-    url: jdbc:postgresql://${POSTGRES_URL}:${POSTGRES_PORT}/{POSTGRES_DB}
-    username: ${POSTGRES_USERNAME}
-    password: ${POSTGRES_PASSWORD}
+    url: jdbc:postgresql://localhost:5433/${POSTGRES_DB:cashdb}
+    username: ${POSTGRES_USER:cash}
+    password: ${POSTGRES_PASSWORD:cash}
+    driver-class-name: org.postgresql.Driver
   jpa:
-    hibernate: 
+    hibernate:
       ddl-auto: update
     properties:
-      dialect: org.hibernate.dialect.PostgreSQLDialect
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
