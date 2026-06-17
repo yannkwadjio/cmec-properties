@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://db:5432/cmecdb
+    username: cmec
+    password: cmec
+  jpa:
+    properties:
+      hibernate:
+       show_sql: true
+
+
+server:
+  port: ${SERVER_PORT:8010}
+
+
