@@ -1,0 +1,77 @@
+spring:
+  config:
+    import:
+      - "cmec-dev.yaml"
+      - "cmec-prod.yaml"
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: true
+  application:
+    name: cmec
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_batch_fetch_size: 50
+        show_sql: ${HIBERNATE_SHOW_SQL:true}
+
+
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: ${SERVER_CONTEXT_PATH:/cmec-app}
+    session:
+      cookie:
+        same-site: strict
+
+logging:
+  pattern:
+    file: {"timestamp":"%d{yyyy-MM-dd HH:mm:ss}","level":"%p","logger":"%c","message":"%m"}
+
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  info:
+    env:
+      enabled: true
+    app:
+      name: ${spring.application.name}
+      description: Backend Project for CMEC backend application
+      version: 1.1.0
+      contact: cmec@expressunion.net
+
+
+# Personnaliser le chemin de l'interface Swagger UI
+springdoc:
+  swagger-ui:
+    path: /docs
+  api-docs:
+    path: /v3/api-docs
+  enabled: true
+
+
+cache:
+  associations-ttl-days: 10
+  associations-max-size: 500
+  branches-ttl-days: 10
+  branches-max-size: 500
+
+app:
+  cors:
+    allowed-origins: ${ALLOWED_ORIGINS:http://localhost:5173}
+    allowed-methods: "*"
+    allow-credentials: true
+    allowed-headers: "*"
+    exposed-headers: Authorization
+    max-age: 3600
