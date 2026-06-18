@@ -1,9 +1,9 @@
 spring:
+  application:
+    name: cmec
   jackson:
     serialization:
       fail-on-empty-beans: true
-  application:
-    name: cmec
 
   jpa:
     open-in-view: false
