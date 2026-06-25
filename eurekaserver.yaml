@@ -1,0 +1,22 @@
+server:
+  port: 8012
+
+management:
+  endpoints:
+    web:
+      exposure:
+        includes: "*"
+  health:
+    readinessstate:
+      enabled: true
+    livenessstate:
+      enabled: true
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    fetchRegister: false
+    registerWithEureka: false
+    serviceUrl:
+      defaultZone:"http://${eureka.instance.hostname}:${server.port}/eureka/"
