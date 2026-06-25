@@ -24,6 +24,15 @@ server:
       cookie:
         same-site: strict
 
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    fetchRegister: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8012/eureka/
+
 logging:
   pattern:
     file: {"timestamp":"%d{yyyy-MM-dd HH:mm:ss}","level":"%p","logger":"%c","message":"%m"}
@@ -46,6 +55,13 @@ management:
       version: 1.1.0
       contact: "{cipher}25da4ee118e877a1857dec9eb7a975b0a2aaa7eaad6e2286814a78292d2190c19ee484d21e2047399e7e246f09207f31"
 
+info:
+  app: 
+   name: ${spring.application.name}
+    description: Backend Project for CMEC backend application
+    version: 1.1.0
+    contact: "{cipher}25da4ee118e877a1857dec9eb7a975b0a2aaa7eaad6e2286814a78292d2190c19ee484d21e2047399e7e246f09207f31"
+    
 
 # Personnaliser le chemin de l'interface Swagger UI
 springdoc:
