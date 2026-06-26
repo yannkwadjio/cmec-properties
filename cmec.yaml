@@ -24,14 +24,6 @@ server:
       cookie:
         same-site: strict
 
-eureka:
-  instance:
-    preferIpAddress: true
-  client:
-    fetchRegister: true
-    registerWithEureka: true
-    serviceUrl:
-      defaultZone: "http://localhost:8012/eureka/"
 
 logging:
   pattern:
